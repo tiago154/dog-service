@@ -1,0 +1,13 @@
+{:config-paths ["metosin/compojure-api"]
+ :hooks {:analyze-call {compojure.api.sweet/api hooks.compojure.api.sweet/api
+						 compojure.api.sweet/context hooks.compojure.api.sweet/context
+						 compojure.api.sweet/GET hooks.compojure.api.sweet/GET
+						 compojure.api.sweet/ANY hooks.compojure.api.sweet/ANY}}
+ :linters {:unresolved-symbol {:ignore-contexts #{compojure.api.sweet/GET
+												  compojure.api.sweet/ANY
+												  compojure.api.sweet/context
+												  compojure.api.sweet/api
+												  compojure.api.core/GET
+												  compojure.api.core/ANY
+												  compojure.api.core/context
+												  compojure.api.core/api}}}}

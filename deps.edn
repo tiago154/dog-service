@@ -1,0 +1,22 @@
+{:paths ["src" "test"]
+ :deps {ring/ring-core {:mvn/version "1.12.2"}
+        ring/ring-jetty-adapter {:mvn/version "1.12.2"}
+        compojure/compojure {:mvn/version "1.7.0"}
+        metosin/compojure-api {:mvn/version "2.0.0-alpha31"}
+        metosin/ring-http-response {:mvn/version "0.9.3"}
+        metosin/schema-tools {:mvn/version "0.12.3"}
+        prismatic/schema {:mvn/version "1.4.1"}
+       clj-http/clj-http {:mvn/version "3.12.3"}
+       org.clojure/tools.logging {:mvn/version "1.3.0"}
+       org.slf4j/slf4j-nop {:mvn/version "2.0.13"}
+       cheshire/cheshire {:mvn/version "5.11.0"}}
+ :aliases
+ {:run {:main-opts ["-m" "dog-service.core"]}
+  :test {:extra-deps {lambdaisland/kaocha {:mvn/version "1.91.1392"}}
+         :exec-fn kaocha.runner/exec-fn}
+              :coverage {:extra-deps {lambdaisland/kaocha {:mvn/version "1.91.1392"}
+                                                                                                  lambdaisland/kaocha-cloverage {:mvn/version "1.0.75"}}
+                                                  :jvm-opts ["-Dfile.encoding=UTF-8"]
+                                                  :exec-fn kaocha.runner/exec-fn
+                           :exec-args {:plugins [:kaocha.plugin/cloverage]
+                                       :cloverage/opts {:ns-exclude-regex ["^user$" "^dog-service\\.core$"]}}}}}

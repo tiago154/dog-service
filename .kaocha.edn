@@ -1,0 +1,2 @@
+{:plugins [:kaocha.plugin/cloverage]
+ :cloverage/opts {:ns-exclude-regex ["^user$" "^dog-service\\.core$"]}}
